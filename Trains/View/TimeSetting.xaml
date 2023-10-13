@@ -1,0 +1,134 @@
+﻿<Page x:Class="Trains.View.TimeSetting"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:Trains.View"
+      mc:Ignorable="d" 
+     d:DesignHeight="750" d:DesignWidth="1280"
+      Title="إعدادات الوقت"
+      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="15"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        
+        FontFamily="{DynamicResource MaterialDesignFont}"
+         Foreground="White" >
+
+    <Grid  Opacity="0.9">
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#FF5442B2" Offset="0"/>
+                <GradientStop Color="#FF43A2E0" Offset="0.75"/>
+                <GradientStop Color="#FF994BBE" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <StackPanel Orientation="Horizontal" Margin="0,30,45,0" VerticalAlignment="Top" HorizontalAlignment="Right">
+            <materialDesign:Card Height="50" Width="150" Background="#FFD9D9D9" Margin="0,0,15,0">
+                <TextBlock x:Name="lableTrain" Text="{Binding sn}"  Margin="15,0,20,0" TextWrapping="Wrap"  VerticalAlignment="Center"  HorizontalAlignment="Left" FontFamily="Lato" FontSize="30" FontWeight="Bold" TextAlignment="Left" Foreground="#FF315397" />
+            </materialDesign:Card>
+            <TextBlock Text=": رقم القاطرة"   FontFamily="Lato" FontSize="50" />
+        </StackPanel>
+        <Grid Margin="0,2,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="256"/>
+                <ColumnDefinition Width="256"/>
+                <ColumnDefinition Width="256"/>
+                <ColumnDefinition Width="256"/>
+                <ColumnDefinition Width="256"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" >
+                <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,150,0,0">
+                    <Label Content="T6" FontSize="40"  HorizontalAlignment="Center" Margin="0,0,0,0" Foreground="#FFFFFFFF"></Label>
+                    <materialDesign:Card Height="50" Width="240" Background="#FFD9D9D9" Margin="0,0,0,0">
+                        <TextBlock x:Name="T6txt" Text="{Binding T6}" Margin="15,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="Wrap" FontFamily="Lato" FontWeight="DemiBold" FontSize="25" TextAlignment="Center" Foreground="#FF315397" ></TextBlock>
+                    </materialDesign:Card>
+                    <Button   x:Name="resetT6"  Margin="0,30,0,0" materialDesign:ButtonAssist.CornerRadius="5" FontSize="30" Content="T6  تصفير"  Width="200" Height="60"  Background="#FFF0A83D" Foreground="White" FontFamily="Lato" FontWeight="Bold" Click="resetT6_Click"/>
+                    <Label Content=": القيمة العظمى" FontSize="30"  HorizontalAlignment="Center" FontWeight="DemiBold" Margin="0,20,0,0" Foreground="#FF1B418C"></Label>
+                    <materialDesign:Card x:Name="T6MaxCards" Height="50" Width="240" Background="#FF7CF581" Margin="0,10,0,0">
+                        <TextBlock x:Name="T6MaxCard" Text="{Binding mT6}"  Margin="15,0,0,0"  VerticalAlignment="Center"  HorizontalAlignment="Left" FontFamily="Lato" FontSize="30" FontWeight="Bold" TextAlignment="Right" Foreground="#FF315397" />
+                    </materialDesign:Card>
+                    <Label Content=": T6 القيمة العظمى الجديدة " FontSize="21"  HorizontalAlignment="Center" FontWeight="DemiBold" Margin="0,20,0,0" Foreground="#FF1B418C"></Label>
+                    <TextBox   Text="" x:Name="T6MaxNew" FontSize="18" Width="240" materialDesign:HintAssist.Hint="T6 أدخل القيمة الجديدة" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}"  Style="{StaticResource MaterialDesignOutlinedTextBox}" Background="#FFEAE9F0"  Foreground="#FF1F2151"/>
+                    <Button   x:Name="editT6Btn" Content="تعديل"  Margin="0,35,0,0"  materialDesign:ButtonAssist.CornerRadius="5" FontSize="30"  Width="200" Height="60"  Background="#FF3775BD" Foreground="White" FontFamily="Lato" FontWeight="Bold" Click="editT6Btn_Click"/>
+                </StackPanel>
+                <Button x:Name="backBtn" Height="80" Width="90" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="51,20,0,0"
+                 Background="{DynamicResource MaterialDesignTextFieldBoxBackground}"
+                 IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Page}}"
+                 Style="{StaticResource MaterialDesignIconButton}"
+                 ToolTip="رجوع" Click="backBtn_Click">
+                    <materialDesign:PackIcon Foreground="White"
+                       Kind="ArrowBack" Height="80" Width="96"   />
+                </Button>
+            </Grid>
+            <Grid Grid.Column="1" >
+                <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,150,0,0">
+                    <Label Content="T5" FontSize="40"  HorizontalAlignment="Center" Margin="0,0,0,0" Foreground="#FFFFFFFF"></Label>
+                    <materialDesign:Card Height="50" Width="240" Background="#FFD9D9D9" Margin="0,0,0,0">
+                        <TextBlock x:Name="T5txt"  Text="{Binding T5}" Margin="15,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="Wrap" FontFamily="Lato" FontWeight="DemiBold" FontSize="25" TextAlignment="Center" Foreground="#FF315397" ></TextBlock>
+                    </materialDesign:Card>
+                    <Button   x:Name="resetT5" Content="T5  تصفير" Margin="0,30,0,0" materialDesign:ButtonAssist.CornerRadius="5" FontSize="30"   Width="200" Height="60"  Background="#FFF0A83D" Foreground="White" FontFamily="Lato" FontWeight="Bold" Click="resetT5_Click"/>
+                    <Label Content=": القيمة العظمى" FontSize="30"  HorizontalAlignment="Center" FontWeight="DemiBold" Margin="0,20,0,0" Foreground="#FF1B418C"></Label>
+                    <materialDesign:Card x:Name="T5MaxCards" Height="50" Width="240" Background="#FF7CF581" Margin="0,10,0,0">
+                        <TextBlock x:Name="T5MaxCard" Text="{Binding mT5}"  Margin="15,0,0,0"  VerticalAlignment="Center"  HorizontalAlignment="Left" FontFamily="Lato" FontSize="30" FontWeight="Bold" TextAlignment="Right" Foreground="#FF315397" />
+                    </materialDesign:Card>
+                    <Label Content=": T5 القيمة العظمى الجديدة " FontSize="21"  HorizontalAlignment="Center" FontWeight="DemiBold" Margin="0,20,0,0" Foreground="#FF1B418C"></Label>
+                    <TextBox   Text="" x:Name="T5MaxNew"  materialDesign:HintAssist.Hint="T5 أدخل القيمة الجديدة" FontSize="18" Width="240" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}"  Style="{StaticResource MaterialDesignOutlinedTextBox}" Background="#FFEAE9F0"  Foreground="#FF1F2151"/>
+                    <Button   x:Name="editT5Btn" Content="تعديل" Margin="0,35,0,0"  materialDesign:ButtonAssist.CornerRadius="5" FontSize="30"   Width="200" Height="60"  Background="#FF3775BD" Foreground="White" FontFamily="Lato" FontWeight="Bold" Click="editT5Btn_Click"/>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Column="2" >
+                <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,150,0,0">
+                    <Label Content="T4" FontSize="40"  HorizontalAlignment="Center" Margin="0,0,0,0" Foreground="#FFFFFFFF"></Label>
+                    <materialDesign:Card Height="50" Width="240" Background="#FFD9D9D9" Margin="0,0,0,0">
+                        <TextBlock x:Name="T4txt" Text="{Binding T4}" Margin="15,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="Wrap" FontFamily="Lato" FontWeight="DemiBold" FontSize="25" TextAlignment="Center" Foreground="#FF315397" ></TextBlock>
+                    </materialDesign:Card>
+                    <Button   x:Name="resetT4" Content="T4  تصفير" Margin="0,30,0,0" materialDesign:ButtonAssist.CornerRadius="5" FontSize="30"   Width="200" Height="60"  Background="#FFF0A83D" Foreground="White" FontFamily="Lato" FontWeight="Bold" Click="resetT4_Click"/>
+                    <Label Content=": القيمة العظمى" FontSize="30"  HorizontalAlignment="Center" FontWeight="DemiBold" Margin="0,20,0,0" Foreground="#FF1B418C"></Label>
+                    <materialDesign:Card x:Name="T4MaxCards" Height="50" Width="240" Background="#FF7CF581" Margin="0,10,0,0">
+                        <TextBlock x:Name="T4MaxCard" Text="{Binding mT4}"  Margin="15,0,0,0"  VerticalAlignment="Center"  HorizontalAlignment="Left" FontFamily="Lato" FontSize="30" FontWeight="Bold" TextAlignment="Right" Foreground="#FF315397" />
+                    </materialDesign:Card>
+                    <Label Content=": T4 القيمة العظمى الجديدة " FontSize="21"  HorizontalAlignment="Center" FontWeight="DemiBold" Margin="0,20,0,0" Foreground="#FF1B418C"></Label>
+                    <TextBox   Text="" x:Name="T4MaxNew"  materialDesign:HintAssist.Hint="T4 أدخل القيمة الجديدة" FontSize="18" Width="240" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}"  Style="{StaticResource MaterialDesignOutlinedTextBox}" Background="#FFEAE9F0"  Foreground="#FF1F2151"/>
+                    <Button   x:Name="editT4Btn"  Content="تعديل"  Margin="0,35,0,0"  materialDesign:ButtonAssist.CornerRadius="5" FontSize="30"  Width="200" Height="60"  Background="#FF3775BD" Foreground="White" FontFamily="Lato" FontWeight="Bold" Click="editT4Btn_Click"/>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Column="3" >
+
+                <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,150,0,0" Grid.Row="1" Height="616">
+                    <Label Content="T3" FontSize="40"  HorizontalAlignment="Center" Margin="0,0,0,0" Foreground="#FFFFFFFF"></Label>
+                    <materialDesign:Card Height="50" Width="240" Background="#FFD9D9D9" Margin="0,0,0,0">
+                        <TextBlock x:Name="T3txt" Text="{Binding T3}" Margin="15,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="Wrap" FontFamily="Lato" FontWeight="DemiBold" FontSize="25" TextAlignment="Center" Foreground="#FF315397" ></TextBlock>
+                    </materialDesign:Card>
+                    <Button   x:Name="resetT3" Content="T3  تصفير" Margin="0,30,0,0" materialDesign:ButtonAssist.CornerRadius="5" FontSize="30"   Width="200" Height="60"  Background="#FFF0A83D" Foreground="White" FontFamily="Lato" FontWeight="Bold" Click="resetT3_Click"/>
+                    <Label Content=": القيمة العظمى" FontSize="30"  HorizontalAlignment="Center" FontWeight="DemiBold" Margin="0,20,0,0" Foreground="#FF1B418C"></Label>
+                    <materialDesign:Card x:Name="T3MaxCards" Height="50" Width="240" Background="#FF7CF581" Margin="0,10,0,0">
+                        <TextBlock x:Name="T3MaxCard" Text="{Binding mT3}"  Margin="15,0,0,0"   VerticalAlignment="Center"  HorizontalAlignment="Left" FontFamily="Lato" FontSize="30" FontWeight="Bold" TextAlignment="Right" Foreground="#FF315397" />
+                    </materialDesign:Card>
+                    <Label Content=": T3 القيمة العظمى الجديدة " FontSize="21"  HorizontalAlignment="Center" FontWeight="DemiBold" Margin="0,20,0,0" Foreground="#FF1B418C"></Label>
+                    <TextBox   Text="" x:Name="T3MaxNew"  materialDesign:HintAssist.Hint="T3 أدخل القيمة الجديدة" FontSize="18" Width="240" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}"  Style="{StaticResource MaterialDesignOutlinedTextBox}" Background="#FFEAE9F0"  Foreground="#FF1F2151"/>
+                    <Button   x:Name="editT3Btn"  Content="تعديل"  Margin="0,35,0,0"  materialDesign:ButtonAssist.CornerRadius="5" FontSize="30"  Width="200" Height="60"  Background="#FF3775BD" Foreground="White" FontFamily="Lato" FontWeight="Bold" Click="editT3Btn_Click"/>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Column="4" >
+                <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,150,0,0">
+                    <Label Content="T2" FontSize="40"  HorizontalAlignment="Center" Margin="0,0,0,0" Foreground="#FFFFFFFF"></Label>
+                    <materialDesign:Card Height="50" Width="240" Background="#FFD9D9D9" Margin="0,0,0,0">
+                        <TextBlock x:Name="T2txt" Text="{Binding T2}" Margin="15,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="Wrap" FontFamily="Lato" FontWeight="DemiBold" FontSize="25" TextAlignment="Center" Foreground="#FF315397" ></TextBlock>
+                    </materialDesign:Card>
+                    <Button   x:Name="resetT2" Content="T2  تصفير" Margin="0,30,0,0" materialDesign:ButtonAssist.CornerRadius="5" FontSize="30"   Width="200" Height="60"  Background="#FFF0A83D" Foreground="White" FontFamily="Lato" FontWeight="Bold" Click="resetT2_Click"/>
+                    <Label Content=": القيمة العظمى" FontSize="30"  HorizontalAlignment="Center" FontWeight="DemiBold" Margin="0,20,0,0" Foreground="#FF1B418C"></Label>
+                    <materialDesign:Card  x:Name="T2MaxCards" Height="50" Width="240" Background="#FF7CF581" Margin="0,10,0,0">
+                        <TextBlock x:Name="T2MaxCard" Text="{Binding mT2}"  Margin="15,0,0,0"  VerticalAlignment="Center"  HorizontalAlignment="Left" FontFamily="Lato" FontSize="30" FontWeight="Bold" TextAlignment="Right" Foreground="#FF315397" />
+                    </materialDesign:Card>
+                    <Label Content=": T2 القيمة العظمى الجديدة " FontSize="21"  HorizontalAlignment="Center" FontWeight="DemiBold" Margin="0,20,0,0" Foreground="#FF1B418C"></Label>
+                    <TextBox   Text="" x:Name="T2MaxNew"  materialDesign:HintAssist.Hint="T2 أدخل القيمة الجديدة" FontSize="18" Width="240" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}"  Style="{StaticResource MaterialDesignOutlinedTextBox}" Background="#FFEAE9F0"  Foreground="#FF1F2151"/>
+                    <Button   x:Name="editT2Btn"  Content="تعديل"  Margin="0,35,0,0"  materialDesign:ButtonAssist.CornerRadius="5" FontSize="30"  Width="200" Height="60"  Background="#FF3775BD" Foreground="White" FontFamily="Lato" FontWeight="Bold" Click="editT2Btn_Click"/>
+                </StackPanel>
+            </Grid>
+
+        </Grid>
+    </Grid>
+</Page>

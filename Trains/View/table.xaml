@@ -1,0 +1,104 @@
+﻿<Page x:Class="Trains.View.table"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:wpsfx="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit/extended"
+      xmlns:local="clr-namespace:Trains.View"
+      mc:Ignorable="d"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+     d:DesignHeight="750" d:DesignWidth="1280"
+      Title="الشاشة الرئيسية"
+      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="15"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+         Foreground="White">
+
+
+    <Grid  Opacity="0.9">
+        
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#FF2B364A" Offset="0"/>
+                <GradientStop Color="#FF143850" Offset="0.75"/>
+                <GradientStop Color="#FF431C56" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Button x:Name="backBtn" Height="80" Width="90" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="52,45,0,0"
+         Background="{DynamicResource MaterialDesignTextFieldBoxBackground}"
+         IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Page}}"
+         Style="{StaticResource MaterialDesignIconButton}"
+         ToolTip="رجوع" Click="backBtn_Click">
+            <materialDesign:PackIcon Foreground="White"
+            Kind="ArrowBack" Height="70" Width="80" HorizontalAlignment="Center"   />
+        </Button>
+        <StackPanel Orientation="Horizontal" Margin="0,18,90,0" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.ColumnSpan="2">
+            <Button x:Name="PrintBtn" Height="80" Width="90" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,30,25,0"
+         Background="{DynamicResource MaterialDesignTextFieldBoxBackground}"
+         IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Page}}"
+         Style="{StaticResource MaterialDesignIconButton}"
+         ToolTip="طباعة" Click="PrintBtn_Click">
+                <materialDesign:PackIcon Foreground="White"
+            Kind="FileExcel" Height="70" Width="80" HorizontalAlignment="Center"   />
+            </Button>
+            <Button x:Name="enterBtn" Height="80" Width="90" Margin="0,30,30,0"
+         Background="{DynamicResource MaterialDesignTextFieldBoxBackground}"
+         IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Page}}}"
+         Style="{StaticResource MaterialDesignIconButton}"
+         ToolTip="بحث" Click="enterBtn_Click">
+                <materialDesign:PackIcon Foreground="White"
+            Kind="DateRange" Height="70" Width="80" HorizontalAlignment="Center"   />
+            </Button>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <wpsfx:DateTimePicker  Margin="0,0,12,0" Height="45" HorizontalAlignment="Left" Name="endDate" 
+    VerticalAlignment="Bottom" Width="289" FontFamily="Lato" FormatString="yyyy-MM-dd HH':'mm':'ss" Format="Custom" FontWeight="Bold" FontSize="20"   />
+                <TextBlock Text=": إلى"   Margin="1,25,15,0" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontFamily="Lato" FontSize="40" FontWeight="Bold" Foreground="White" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Height="90" >
+                <wpsfx:DateTimePicker  Margin="0,0,12,0" Height="45" HorizontalAlignment="Left" Name="startDate"
+                                                            VerticalAlignment="Bottom" Width="289" FontFamily="Lato" FormatString="yyyy-MM-dd HH':'mm':'ss" IsManipulationEnabled="True" FontWeight="Bold" FontSize="20" Format="Custom"  />
+                <TextBlock Text=": من" Margin="0,0,0,0" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontFamily="Lato" FontSize="40" Foreground="White" FontWeight="Bold" />
+            </StackPanel>
+
+        </StackPanel>
+        <TextBlock Text="بحث"   Margin="326,2,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" FontFamily="Lato" FontSize="32" FontWeight="Bold"  FontStretch="ExtraExpanded" Foreground="White" Height="39" />
+        <TextBlock Text="طباعة"   Margin="202,4,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"  TextAlignment="Right" FontFamily="Lato" FontSize="29" FontWeight="Bold" Foreground="White" Width="74" Height="39" />
+
+        <DataGrid x:Name="dataGrid"
+                    AutoGenerateColumns="False"
+                    CanUserAddRows="False" 
+                    CanUserDeleteRows="False"
+                    Width="1100" 
+                   HorizontalScrollBarVisibility="Visible"
+                     IsReadOnly="True" Margin="90,137,90,4" Grid.ColumnSpan="2" >
+            <DataGrid.Columns>
+
+
+                <DataGridTextColumn Header="وقت التسجيل" MinWidth="50" Width="200" Binding="{Binding time}"
+                            />
+                <DataGridTextColumn Header="استهلاك الوقود" MinWidth="50" Width="120" Binding="{Binding F}"
+                            />
+                <DataGridTextColumn Header="السرعة" MinWidth="50" Width="120" Binding="{Binding speed}"
+                            />
+                <DataGridTextColumn Header="لجام آلي" MinWidth="50" Width="90" Binding="{Binding br1}"
+                            />
+                <DataGridTextColumn Header="لجام مباشر" MinWidth="50" Width="90" Binding="{Binding br2}"
+                            />
+                <DataGridTextColumn Header="مستوى الوقود" MinWidth="50" Width="120" Binding="{Binding L}"
+                            />
+                <DataGridTextColumn x:Name="snC"  Header="اسم القاطرة" MinWidth="50" Width="110" Binding="{Binding sn}"
+                            />
+
+
+
+
+
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Page>

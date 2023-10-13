@@ -1,0 +1,31 @@
+﻿<Window x:Class="Trains.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:wpfx="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit/extended"
+        xmlns:local="clr-namespace:Trains"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="القطارات" Height="800" Width="1280" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowState="Normal" WindowStyle="None" >
+
+    <Grid>
+        <Grid x:Name="up" Background="#EEEEEE" Height="50" VerticalAlignment="Top"  >
+
+            <Image x:Name="Exit" HorizontalAlignment="Right" Height="32" VerticalAlignment="Top" Width="37" Source="/Resouces/Images/REDUI.png" MouseLeftButtonDown="Exit_MouseLeftButtonDown" Margin="0,10,10,0" Cursor="Hand"/>
+            <Image x:Name="Min" HorizontalAlignment="Right" Height="32" VerticalAlignment="Top" Width="37" Source="/Resouces/Images/GreenUI.png" MouseLeftButtonDown="Min_MouseLeftButtonDown" Margin="0,10,58,0" Cursor="Hand"/>
+
+        </Grid>
+        <Grid Background="Transparent" Margin="0,50,0,0"    >
+
+            <Frame Name="myFrame" NavigationUIVisibility="Hidden" Source="/Trains;component/View/HomeAdmin.xaml"  />
+        </Grid>
+        <materialDesign:Snackbar  FontSize="34" FontWeight="Bold" Margin="0,0,25,5" Foreground="#FF3E79E6"
+            x:Name="turnAlarm" 
+            HorizontalAlignment="Right">
+            <materialDesign:SnackbarMessage x:Name="MessageAlarm" ActionClick="MessageAlarm_ActionClick"  Foreground="#FFFA2B2B" FontSize="28" FontWeight="Bold" FontFamily="Arial Rounded MT Bold"
+    ActionContent="تم"
+    Content="رسالة" />
+        </materialDesign:Snackbar>
+    </Grid>
+</Window>

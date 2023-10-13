@@ -1,0 +1,42 @@
+ <StackPanel Orientation="Horizontal" Margin="0,36,20,0" HorizontalAlignment="Right" VerticalAlignment="Top">
+            <Button x:Name="PrintBtn" Height="80" Width="90" VerticalAlignment="Top" Margin="0,20,40,0"
+         Background="{DynamicResource MaterialDesignTextFieldBoxBackground}"
+         IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Page}}"
+         Style="{StaticResource MaterialDesignIconButton}"
+         ToolTip="طباعة" Click="PrintBtn_Click">
+                <materialDesign:PackIcon Foreground="White"
+            Kind="Printer" Height="70" Width="80" VerticalAlignment="Center"   />
+            </Button>
+            <Button x:Name="SaveBtn" Height="80" Width="90" Margin="0,20,40,0"
+         Background="{DynamicResource MaterialDesignTextFieldBoxBackground}"
+         IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Page}}}"
+         Style="{StaticResource MaterialDesignIconButton}"
+         ToolTip="حقظ كصورة" Click="SaveBtn_Click">
+                <materialDesign:PackIcon  Foreground="White"
+            Kind="ContentSave" Height="70" Width="80" HorizontalAlignment="Center"   />
+            </Button>
+            <Button x:Name="enterBtn" Height="80" Width="90" Margin="0,20,20,0"
+         Background="{DynamicResource MaterialDesignTextFieldBoxBackground}"
+         IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Page}}}"
+         Style="{StaticResource MaterialDesignIconButton}"
+         ToolTip="بحث" Click="enterBtn_Click">
+                <materialDesign:PackIcon  Foreground="White"
+            Kind="DateRange" Height="70" Width="80" HorizontalAlignment="Center"   />
+            </Button>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <wpsfx:DateTimePicker Margin="0,0,12,0" Height="45" HorizontalAlignment="Left" x:Name="endDate" 
+    VerticalAlignment="Bottom" Width="289" FontFamily="Lato" FormatString="yyyy-MM-dd HH':'mm':'ss" Format="Custom" FontWeight="Bold" FontSize="20"   />
+                <TextBlock Text=": إلى"   Margin="1,25,15,0" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontWeight="DemiBold" FontFamily="Lato" FontSize="40" Foreground="White"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" >
+                <wpsfx:DateTimePicker  Margin="0,45,12,0" Height="45" HorizontalAlignment="Left" x:Name="startDate"
+                                                            VerticalAlignment="Top" Width="289" FontFamily="Lato" FormatString="yyyy-MM-dd HH':'mm':'ss" IsManipulationEnabled="True" FontWeight="Bold" FontSize="20" Format="Custom"  />
+                <TextBlock Text=": من" Margin="0,40,0,0" VerticalAlignment="Top" FontWeight="DemiBold" FontFamily="Lato" FontSize="40" Foreground="White" />
+            </StackPanel>
+
+        </StackPanel>
+        <TextBlock Text="بحث"   Margin="405,14,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" FontFamily="Lato" FontSize="32" FontWeight="Bold"  FontStretch="ExtraExpanded" Foreground="White" Height="39" />
+        <TextBlock Text="حفظ كصورة"   Margin="229,14,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"  TextAlignment="Right" FontFamily="Lato" FontSize="29" FontWeight="Bold" Foreground="White" Width="151" Height="39" />
+        <TextBlock Text="طباعة"   Margin="133,15,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" FontFamily="Lato" FontSize="30" FontWeight="Bold" FontStretch="ExtraExpanded"  Foreground="White" />

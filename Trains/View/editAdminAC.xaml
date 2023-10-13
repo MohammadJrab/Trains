@@ -1,0 +1,57 @@
+﻿<Page x:Class="Trains.View.editAdminAC"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:Trains.View"
+      mc:Ignorable="d" 
+      Title="usersManager"
+      d:DesignHeight="750" d:DesignWidth="1280"
+      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+      TextElement.FontWeight="Regular"
+      TextElement.FontSize="15"
+      TextOptions.TextFormattingMode="Ideal"
+      TextOptions.TextRenderingMode="Auto"
+      FontFamily="{DynamicResource MaterialDesignFont}"
+      Foreground="White" >
+
+    <Grid  Opacity="0.8"  >
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#FF5442B2" Offset="0"/>
+                <GradientStop Color="#FF43A2E0" Offset="0.75"/>
+                <GradientStop Color="#FF994BBE" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Image HorizontalAlignment="Center" Height="197" Margin="0,25,0,0" VerticalAlignment="Top" Width="230" Source="/Resouces/Images/user-pen.png"/>
+
+        <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="446,309,0,0">
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,25" >
+
+                <ComboBox x:Name="UsersList" VerticalAlignment="Center" Width="290" Height="49" FontFamily="Lato" FontWeight="Bold" FontSize="20" SelectedIndex="0"/>
+                <Label Content=": اسم المستخدم" FontSize="35"  HorizontalAlignment="Center" FontWeight="DemiBold" Margin="15,3,0,0" Foreground="#FFFFFFFF"></Label>
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,20,0,0" >
+                <TextBox  x:Name="passtxt"  materialDesign:HintAssist.Hint="أدخل كلمة المرور" FontSize="18" Width="290" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}"  Style="{StaticResource MaterialDesignOutlinedTextBox}" Background="#FFEAE9F0"  Foreground="#FF1F2151"/>
+                <Label Content=": كلمة المرور الجديدة" FontSize="35"  HorizontalAlignment="Center" FontWeight="DemiBold" Margin="15,3,0,0" Foreground="#FFFFFFFF"></Label>
+            </StackPanel>
+
+
+        </StackPanel>
+
+
+        <Button   x:Name="editUserBtn"  Content="تغير كلمة المرور"  Margin="471,574,0,0"  HorizontalAlignment="Left" VerticalAlignment="Top" materialDesign:ButtonAssist.CornerRadius="5" FontSize="32"  Width="268" Height="60"  Background="#FF2E3241" Foreground="White" FontFamily="Lato" FontWeight="DemiBold" Click="delUserBtn_Click"/>
+
+        <Button x:Name="backBtn" Height="100" Width="100" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="70,50,0,0"
+        Background="{DynamicResource MaterialDesignTextFieldBoxBackground}"
+        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Page}}"
+        Style="{StaticResource MaterialDesignIconButton}"
+        ToolTip="رجوع" Click="backBtn_Click">
+            <materialDesign:PackIcon Foreground="White" Kind="ArrowBack" Height="75" Width="100"   />
+        </Button>
+
+
+    </Grid>
+</Page>

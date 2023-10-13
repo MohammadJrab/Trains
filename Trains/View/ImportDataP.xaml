@@ -1,0 +1,70 @@
+﻿<Page x:Class="Trains.View.ImportDataP"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Trains.View"
+      xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      d:DesignHeight="750" d:DesignWidth="1280"
+      Title="إستيراد بيانات"
+      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="15"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+         Foreground="White" Loaded="Page_Loaded" > 
+
+    <Grid   Opacity="0.9" Margin="0,3,0,-3">
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#FF5442B2" Offset="0"/>
+                <GradientStop Color="#FF43A2E0" Offset="0.75"/>
+                <GradientStop Color="#FF650C8F" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Button x:Name="backBtn" Height="80" Width="90" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="50,50,0,0"
+                 Background="{DynamicResource MaterialDesignTextFieldBoxBackground}"
+                 IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Page}}"
+                 Style="{StaticResource MaterialDesignIconButton}"
+                 ToolTip="رجوع" Click="backBtn_Click">
+            <materialDesign:PackIcon Foreground="White"
+                       Kind="ArrowBack" Height="80" Width="96"   />
+        </Button>
+        <ProgressBar  Name="progressBar"  Height="30" Margin="168,660,167,60" IsIndeterminate = "True" Visibility="Collapsed" Cursor="Wait" UseLayoutRounding="True">
+            <ProgressBar.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF1BF9F9" Offset="1"/>
+                    <GradientStop Offset="0" Color="#FFAAF90F"/>
+                </LinearGradientBrush>
+            </ProgressBar.Background>
+        </ProgressBar>
+        <StackPanel Orientation="Vertical">
+            <Label Content=": إختر اسم القاطرة لاسترداد بياناتها" HorizontalAlignment="Right" Margin="0,215,30,0" Foreground="White" FontFamily="Lato" VerticalAlignment="Top" FontSize="45" FontWeight="Bold"/>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,50,50,0" >
+
+                <ComboBox x:Name="TrainsList" VerticalAlignment="Center" Width="290" Height="49" FontFamily="Lato" FontWeight="Bold" FontSize="35" SelectedIndex="0"/>
+                <Label Content=": اسم القاطرة" FontSize="45"  HorizontalAlignment="Center" FontWeight="DemiBold" Margin="15,3,0,0" Foreground="#FFFFFFFF"></Label>
+
+            </StackPanel>
+            <Button Name="AddDataBtn" Content="إستيراد البيانات" Height="100" materialDesign:ButtonAssist.CornerRadius="5" FontSize="39" Foreground="White" FontFamily="Lato" FontWeight="Bold" Click="AddDataBtn_Click" Margin="791,100,172,167">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF1F8FE5"/>
+                    <GradientStop Color="#FF194EA3" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        </StackPanel>
+        <Label Content=": حالة استيراد البيانات" HorizontalAlignment="Left" Margin="150,218,0,0" Foreground="White" FontFamily="Lato" VerticalAlignment="Top" FontSize="45" FontWeight="Bold"/>
+        <materialDesign:Card Background="#FFD9D9D9" Margin="48,305,745,289">
+            <TextBlock x:Name="lblStatus" Text="..............................................."   HorizontalAlignment="Left"  TextWrapping="Wrap"  Foreground="#FF1B418C" FontFamily="Lato" VerticalAlignment="Center" FontSize="40"   FontWeight="Bold" TextAlignment="Right" Width="449" Margin="8,0,0,0"/>
+        </materialDesign:Card>
+
+
+
+    </Grid>
+</Page>
